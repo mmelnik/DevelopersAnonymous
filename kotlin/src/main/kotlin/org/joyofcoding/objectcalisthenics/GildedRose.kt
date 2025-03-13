@@ -22,6 +22,12 @@ class GildedRose {
         for (item in items) {
             if (item.name == "Aged Brie") {
                 increaseQuality(item)
+
+                decreaseSellIn(item)
+
+                if (item.sellIn < 0) {
+                    increaseQuality(item)
+                }
             } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
                 increaseQuality(item)
 
@@ -32,29 +38,19 @@ class GildedRose {
                 if (item.sellIn < 6) {
                     increaseQuality(item)
                 }
-            } else if (item.name == "Sulfuras, Hand of Ragnaros") {
-                // NOP
-            } else {
-                decreaseQuality(item)
-            }
 
-            if (item.name == "Sulfuras, Hand of Ragnaros") {
-                // NOP
-            } else {
                 decreaseSellIn(item)
-            }
 
-            if (item.name == "Aged Brie") {
-                if (item.sellIn < 0) {
-                    increaseQuality(item)
-                }
-            } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
                 if (item.sellIn < 0) {
                     item.quality = 0
                 }
             } else if (item.name == "Sulfuras, Hand of Ragnaros") {
                 // NOP
             } else {
+                decreaseQuality(item)
+
+                decreaseSellIn(item)
+
                 if (item.sellIn < 0) {
                     decreaseQuality(item)
                 }
