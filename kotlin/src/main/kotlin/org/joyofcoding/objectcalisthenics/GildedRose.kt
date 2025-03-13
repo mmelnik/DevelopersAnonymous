@@ -20,11 +20,7 @@ class GildedRose {
 
     fun updateQuality(items: List<Item>) {
         for (item in items) {
-            if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
-                if (item.name != "Sulfuras, Hand of Ragnaros") {
-                    decreaseQuality(item)
-                }
-            } else {
+            if (item.name == "Aged Brie" || item.name == "Backstage passes to a TAFKAL80ETC concert") {
                 increaseQuality(item)
 
                 if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
@@ -36,23 +32,33 @@ class GildedRose {
                         increaseQuality(item)
                     }
                 }
+            } else {
+                if (item.name == "Sulfuras, Hand of Ragnaros") {
+                    // NOP
+                } else {
+                    decreaseQuality(item)
+                }
             }
 
-            if (item.name != "Sulfuras, Hand of Ragnaros") {
+            if (item.name == "Sulfuras, Hand of Ragnaros") {
+                // NOP
+            } else {
                 decreaseSellIn(item)
             }
 
             if (item.sellIn < 0) {
-                if (item.name != "Aged Brie") {
-                    if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
-                        if (item.name != "Sulfuras, Hand of Ragnaros") {
+                if (item.name == "Aged Brie") {
+                    increaseQuality(item)
+                } else {
+                    if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+                        item.quality = 0
+                    } else {
+                        if (item.name == "Sulfuras, Hand of Ragnaros") {
+                            // NOP
+                        } else {
                             decreaseQuality(item)
                         }
-                    } else {
-                        item.quality = 0
                     }
-                } else {
-                    increaseQuality(item)
                 }
             }
         }
