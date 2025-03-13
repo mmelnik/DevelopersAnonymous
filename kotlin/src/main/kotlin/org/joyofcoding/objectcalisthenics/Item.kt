@@ -4,9 +4,7 @@ open class Item(var name: String, var sellIn: Int, var quality: Int) {
 
     open fun updateQuality() {
         decreaseQuality()
-
         decreaseSellIn()
-
         if (sellIn < 0) {
             decreaseQuality()
         }
