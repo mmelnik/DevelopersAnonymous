@@ -47,7 +47,7 @@ class GildedRose {
             }
 
             if (item.name != "Sulfuras, Hand of Ragnaros") {
-                item.sellIn = item.sellIn - 1
+                decreaseSellIn(item)
             }
 
             if (item.sellIn < 0) {
@@ -76,6 +76,10 @@ class GildedRose {
 
     private fun decreaseQuality(item: Item) {
         item.quality = item.quality - 1
+    }
+
+    private fun decreaseSellIn(item: Item) {
+        item.sellIn = item.sellIn - 1
     }
 
 }
