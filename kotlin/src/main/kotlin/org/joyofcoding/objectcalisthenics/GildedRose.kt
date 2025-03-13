@@ -20,40 +20,44 @@ class GildedRose {
 
     fun updateQuality(items: List<Item>) {
         for (item in items) {
-            if (item.name == "Aged Brie") {
+            updateQuality(item)
+        }
+    }
+
+    private fun updateQuality(item: Item) {
+        if (item.name == "Aged Brie") {
+            item.increaseQuality()
+
+            item.decreaseSellIn()
+
+            if (item.sellIn < 0) {
                 item.increaseQuality()
+            }
+        } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+            item.increaseQuality()
 
-                item.decreaseSellIn()
-
-                if (item.sellIn < 0) {
-                    item.increaseQuality()
-                }
-            } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+            if (item.sellIn < 11) {
                 item.increaseQuality()
+            }
 
-                if (item.sellIn < 11) {
-                    item.increaseQuality()
-                }
+            if (item.sellIn < 6) {
+                item.increaseQuality()
+            }
 
-                if (item.sellIn < 6) {
-                    item.increaseQuality()
-                }
+            item.decreaseSellIn()
 
-                item.decreaseSellIn()
+            if (item.sellIn < 0) {
+                item.quality = 0
+            }
+        } else if (item.name == "Sulfuras, Hand of Ragnaros") {
+            // NOP
+        } else {
+            item.decreaseQuality()
 
-                if (item.sellIn < 0) {
-                    item.quality = 0
-                }
-            } else if (item.name == "Sulfuras, Hand of Ragnaros") {
-                // NOP
-            } else {
+            item.decreaseSellIn()
+
+            if (item.sellIn < 0) {
                 item.decreaseQuality()
-
-                item.decreaseSellIn()
-
-                if (item.sellIn < 0) {
-                    item.decreaseQuality()
-                }
             }
         }
     }
