@@ -125,7 +125,7 @@ internal class GildedRoseTest {
     private fun aRandomBackstagePass(): Item {
         val quality = randomQuality()
         val sellIn = randomSellIn()
-        return Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality)
+        return BackstagePasses(sellIn, quality)
     }
 
 }
