@@ -20,17 +20,17 @@ class GildedRose {
 
     fun updateQuality(items: List<Item>) {
         for (item in items) {
-            if (item.name == "Aged Brie" || item.name == "Backstage passes to a TAFKAL80ETC concert") {
+            if (item.name == "Aged Brie") {
+                increaseQuality(item)
+            } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
                 increaseQuality(item)
 
-                if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                    if (item.sellIn < 11) {
-                        increaseQuality(item)
-                    }
+                if (item.sellIn < 11) {
+                    increaseQuality(item)
+                }
 
-                    if (item.sellIn < 6) {
-                        increaseQuality(item)
-                    }
+                if (item.sellIn < 6) {
+                    increaseQuality(item)
                 }
             } else {
                 if (item.name == "Sulfuras, Hand of Ragnaros") {
