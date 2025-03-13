@@ -12,7 +12,7 @@ class GildedRose {
         items.add(Item("+5 Dexterity Vest", 10, 20))
         items.add(AgedBrie(2, 0))
         items.add(Item("Elixir of the Mongoose", 5, 7))
-        items.add(Item("Sulfuras, Hand of Ragnaros", 0, 80))
+        items.add(Sulfuras(0, 80))
         items.add(BackstagePasses(15, 20))
         items.add(Item("Conjured Mana Cake", 3, 6))
         return items

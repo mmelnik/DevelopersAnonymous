@@ -3,16 +3,12 @@ package org.joyofcoding.objectcalisthenics
 open class Item(var name: String, var sellIn: Int, var quality: Int) {
 
     open fun updateQuality() {
-        if (name == "Sulfuras, Hand of Ragnaros") {
-            // NOP
-        } else {
+        decreaseQuality()
+
+        decreaseSellIn()
+
+        if (sellIn < 0) {
             decreaseQuality()
-
-            decreaseSellIn()
-
-            if (sellIn < 0) {
-                decreaseQuality()
-            }
         }
     }
 
@@ -63,6 +59,14 @@ class BackstagePasses(sellIn: Int, quality: Int) : Item("Backstage passes to a T
         if (sellIn < 0) {
             quality = 0
         }
+    }
+
+}
+
+class Sulfuras(sellIn: Int, quality: Int) : Item("Sulfuras, Hand of Ragnaros", sellIn, quality) {
+
+    override fun updateQuality() {
+        // Never changes its quality.
     }
 
 }
