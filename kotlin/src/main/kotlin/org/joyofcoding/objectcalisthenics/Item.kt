@@ -2,6 +2,44 @@ package org.joyofcoding.objectcalisthenics
 
 open class Item(var name: String, var sellIn: Int, var quality: Int) {
 
+    fun updateQuality() {
+        if (name == "Aged Brie") {
+            increaseQuality()
+
+            decreaseSellIn()
+
+            if (sellIn < 0) {
+                increaseQuality()
+            }
+        } else if (name == "Backstage passes to a TAFKAL80ETC concert") {
+            increaseQuality()
+
+            if (sellIn < 11) {
+                increaseQuality()
+            }
+
+            if (sellIn < 6) {
+                increaseQuality()
+            }
+
+            decreaseSellIn()
+
+            if (sellIn < 0) {
+                quality = 0
+            }
+        } else if (name == "Sulfuras, Hand of Ragnaros") {
+            // NOP
+        } else {
+            decreaseQuality()
+
+            decreaseSellIn()
+
+            if (sellIn < 0) {
+                decreaseQuality()
+            }
+        }
+    }
+
     fun increaseQuality() {
         if (quality < 50) {
             quality++
