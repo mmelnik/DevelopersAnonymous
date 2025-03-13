@@ -23,7 +23,7 @@ class GildedRose {
             if (item.name == "Aged Brie") {
                 item.increaseQuality()
 
-                decreaseSellIn(item)
+                item.decreaseSellIn()
 
                 if (item.sellIn < 0) {
                     item.increaseQuality()
@@ -39,7 +39,7 @@ class GildedRose {
                     item.increaseQuality()
                 }
 
-                decreaseSellIn(item)
+                item.decreaseSellIn()
 
                 if (item.sellIn < 0) {
                     item.quality = 0
@@ -49,17 +49,13 @@ class GildedRose {
             } else {
                 item.decreaseQuality()
 
-                decreaseSellIn(item)
+                item.decreaseSellIn()
 
                 if (item.sellIn < 0) {
                     item.decreaseQuality()
                 }
             }
         }
-    }
-
-    private fun decreaseSellIn(item: Item) {
-        item.sellIn = item.sellIn - 1
     }
 
 }
