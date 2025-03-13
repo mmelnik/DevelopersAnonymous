@@ -21,22 +21,22 @@ class GildedRose {
     fun updateQuality(items: List<Item>) {
         for (item in items) {
             if (item.name == "Aged Brie") {
-                increaseQuality(item)
+                item.increaseQuality()
 
                 decreaseSellIn(item)
 
                 if (item.sellIn < 0) {
-                    increaseQuality(item)
+                    item.increaseQuality()
                 }
             } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                increaseQuality(item)
+                item.increaseQuality()
 
                 if (item.sellIn < 11) {
-                    increaseQuality(item)
+                    item.increaseQuality()
                 }
 
                 if (item.sellIn < 6) {
-                    increaseQuality(item)
+                    item.increaseQuality()
                 }
 
                 decreaseSellIn(item)
@@ -55,12 +55,6 @@ class GildedRose {
                     decreaseQuality(item)
                 }
             }
-        }
-    }
-
-    private fun increaseQuality(item: Item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1
         }
     }
 
