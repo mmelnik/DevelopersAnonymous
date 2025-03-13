@@ -27,17 +27,15 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.quality < 50) {
-                    increaseQuality(item)
+                increaseQuality(item)
 
-                    if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                        if (item.sellIn < 11) {
-                            increaseQuality(item)
-                        }
+                if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+                    if (item.sellIn < 11) {
+                        increaseQuality(item)
+                    }
 
-                        if (item.sellIn < 6) {
-                            increaseQuality(item)
-                        }
+                    if (item.sellIn < 6) {
+                        increaseQuality(item)
                     }
                 }
             }
