@@ -47,20 +47,14 @@ class GildedRose {
             } else if (item.name == "Sulfuras, Hand of Ragnaros") {
                 // NOP
             } else {
-                decreaseQuality(item)
+                item.decreaseQuality()
 
                 decreaseSellIn(item)
 
                 if (item.sellIn < 0) {
-                    decreaseQuality(item)
+                    item.decreaseQuality()
                 }
             }
-        }
-    }
-
-    private fun decreaseQuality(item: Item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1
         }
     }
 
